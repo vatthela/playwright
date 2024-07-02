@@ -1,0 +1,14 @@
+If id:
+css -> tagname#id or # id
+
+If class
+css -> tagname.class or . class
+
+If attribule
+css -> [attribule = 'value']
+
+If parent -> child
+css -> parenttagname -> childtagname
+
+If need write the location base on text
+text=''
