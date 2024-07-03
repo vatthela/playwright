@@ -12,3 +12,32 @@ css -> parenttagname -> childtagname
 
 If need write the location base on text
 text=''
+
+Vào trang web
+Vào form register
+Register thành công
+Login
+Login thành công
+Get thông tin sản phẩm
+Add sản phẩm vào giỏ
+Vào trong giỏ
+Check sản phẩm trong giỏ có sản phảm vừa add
+Checkout sang checkout page
+Verify same product, same quantity
+Nhập tất cả công thông tin payment mode
+Email bạn dùng để đăng nhập sẽ xuất hiện ở đây theo mặc định.
+Search tên quốc gia và hiện dropbox
+Check đầy đủ tên quốc gia + selest
+Apply coupon
+Show text coupon applied
+Confirm
+Validate Confirmation
+Get order_ID
+Goto Order HistoryPage
+Check where is that order present?
+If that order is present in this order list
+Click order go order detail
+Thông tin ban đầu: the country email, the product name, everything is same alternate.
+
+
+
