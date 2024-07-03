@@ -15,12 +15,13 @@ test.only ('Page Client App Login' , async ({page}) =>{
     //Zara Coat 3
     const productName = 'ZARA COAT 3'
     for (let i = 0; i < await products.count(); i++) {
-        if (await products.nth(i).locator('b').textContent() === productName) {
-            await products.nth(i).locator('text()=" Add To Cart"').click()
+        if (await products.nth(i).locator('b').textContent() == productName) {
+            await products.nth(i).locator('text= Add To Cart').click()
             break
         } 
     }
     await page.locator('[routerlink*="cart"]').click()
-    expect (await page.locator('h3:has-text("${productName}")').isVisible())
+    //await page.locator("div li").first().waitFor()
+    await expect (page.locator(`h3:has-text('${productName}')`)).toBeVisible()
     page.pause()
 });
