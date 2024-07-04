@@ -1,11 +1,14 @@
 const {test, expect} = require("@playwright/test");
+const { count } = require("console");
 
 
 test.only ('Page Client App Login' , async ({page}) =>{   
+    const email = 'tunglam@gmail.com'
+    const password = 'Moihoc!1'
     const products = page.locator('.card-body')
     await page.goto("https://rahulshettyacademy.com/client/")
-    await page.locator("#userEmail").fill('tunglam@gmail.com')
-    await page.locator("#userPassword").fill("Moihoc!1")
+    await page.locator("#userEmail").fill(email)
+    await page.locator("#userPassword").fill(password)
     await page.locator("[value='Login']").click()
     await page.waitForLoadState('networkidle')
     await page.locator('.card-body').nth(0).waitFor()
@@ -21,7 +24,26 @@ test.only ('Page Client App Login' , async ({page}) =>{
         } 
     }
     await page.locator('[routerlink*="cart"]').click()
-    //await page.locator("div li").first().waitFor()
+    await page.locator("div li").first().waitFor()
     await expect (page.locator(`h3:has-text('${productName}')`)).toBeVisible()
-    page.pause()
+    await page.locator('text=Checkout').click()
+    await page.locator('[placeholder="Select Country"]').pressSequentially('vi')   
+    const dropdown = page.locator('.ta-results')
+    await dropdown.waitFor()
+    const countDropdown = dropdown.locator('button')
+    for (let i = 0; i < await countDropdown.count(); i++) {
+        const text = await countDropdown.nth(i).textContent()
+        if (text == ' Vietnam') {
+            await countDropdown.nth(i).click()
+            break
+        }
+
+    }
+    await expect(page.locator('.user__name [type="text"]').first()).toContainText("tunglam")
+    await page.locator('.action__submit').click()
+    await expect (page.locator('.hero-primary')).toContainText("THANKYOU FOR THE ORDER")
+    const orderId = await page.locator('.em-spacer-1 .ng-star-inserted').textContent()
+    page.getByLabel
+    console.log(orderId)
+    await page.pause()
 });
