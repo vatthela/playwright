@@ -6,6 +6,7 @@ css -> tagname.class or . class
 
 If attribule
 css -> [attribule = 'value']
+css -> tagname[attribule = 'value']
 
 If parent -> child
 css -> parenttagname -> childtagname
