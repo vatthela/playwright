@@ -14,6 +14,13 @@ css -> parenttagname -> childtagname
 If need write the location base on text
 text=''
 
+npx playwright test --ui
+npx playwright codegen
+npx playwright test --debug
+npx playwright test clientApp.spec.js
+npx playwright test --config=path/to/config.json
+
+
 Vào trang web
 Vào form register
 Register thành công

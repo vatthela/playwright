@@ -55,6 +55,6 @@ test.only ('Page Client App Login' , async ({page}) =>{
     } 
     const orderIdDetails = await page.locator('.col-text').textContent()
     expect (orderId.includes(orderIdDetails)).toBeTruthy()
-    await page.pause()
+    //await page.pause()
 
 });
