@@ -2,7 +2,7 @@ const {test, expect} = require("@playwright/test");
 const { count } = require("console");
 
 
-test.only ('Page Client App Login' , async ({page}) =>{   
+test ('Page Client App Login' , async ({page}) =>{   
     const email = 'tunglam@gmail.com'
     const password = 'Moihoc!1'
     const products = page.locator('.card-body')

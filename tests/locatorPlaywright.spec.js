@@ -1,6 +1,6 @@
 import {test , expect} from '@playwright/test';
 
-test.only ('Locator Playwrigh', async({page}) => {
+test ('Locator Playwrigh', async({page}) => {
     await page.goto('https://rahulshettyacademy.com/angularpractice/')
     await page.getByLabel('Check me out if you Love IceCreams!').check()
     await page.getByLabel('Gender').selectOption('Female')
@@ -13,6 +13,7 @@ test.only ('Locator Playwrigh', async({page}) => {
 
     await expect (page.locator('app-card').filter({hasText: 'Nokia Edge'})).toBeVisible()
     await page.locator('app-card').filter({hasText: 'Nokia Edge'}).getByRole('button').click()
+    await page.waitForEvent('')
 
     //await page.pause()
 })
