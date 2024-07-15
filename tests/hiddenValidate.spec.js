@@ -17,5 +17,4 @@ test.only('Popup Validate', async ({page}) =>{
     await framePage.locator(".text h2").waitFor()
     const textCheck = await framePage.locator(".text h2").textContent()
     console.log(textCheck.split(" ")[1])
-  
 })

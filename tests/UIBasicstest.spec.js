@@ -1,7 +1,7 @@
 const {test, expect} = require("@playwright/test");
 const { isContext } = require("vm");
 
-test ('Browser Context Playwright test' , async ({page}) =>
+test ('Browser Context Playwright test' , async ({page, context}) =>
     {         
         // const context = await browser.newContext(); // Môi trường trình duyệt
         // const page = await context.newPage(); // Mở new Page
