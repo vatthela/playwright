@@ -3,17 +3,28 @@ import {test, expect, request } from '@playwright/test'
 
 let token
 test.beforeAll('Login', async ({}) => {
-
+    // Login API
     const apiConText = await request.newContext();
     const loginResponse = await apiConText.post('https://rahulshettyacademy.com/api/ecom/auth/login',
         {
             data:{userEmail:"tunglam@gmail.com",userPassword:"Moihoc!1"},
         }
     )
+    // Check status code 200
     expect (loginResponse.ok()).toBeTruthy()
     const loginResponseJson = await loginResponse.json()
     token = loginResponseJson.token
     console.log(token) 
+
+     apiConText.post('',
+        {
+            data: {userEmail:"tunglam@gmail.com",userPassword:"Moihoc!1"},
+            headers: {
+
+            }
+        }
+     )
+
 })
 
 test ('Place the Order' , async ({page}) =>{   
@@ -79,3 +90,6 @@ test ('Place the Order' , async ({page}) =>{
     //await page.pause()
 
 });
+
+//Verify order created is showing in history order
+//Precondition - create order
