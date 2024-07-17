@@ -18,4 +18,5 @@ test('calendar', async ({page}) => {
         const value =inputs[i].getAttribute("value");
         expect(value).toEqual(expectedList[i]);
     }
+    await page.screenshot()
 })
