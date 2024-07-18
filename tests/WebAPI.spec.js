@@ -7,8 +7,8 @@ test.beforeAll('Login', async ({}) => {
     // Login API
     const apiConText = await request.newContext();
     const apiUtils = new APIUtils({apiConText})
-    apiUtils.getToken()
-    orderId = apiUtils.CreateOrder()
+    token = await apiUtils.getToken()
+    orderId = await apiUtils.CreateOrder(token)
 
 })
 

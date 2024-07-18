@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test"
+
 export class APIUtils{
     constructor ({apiConText}){
         this.apiConText = apiConText
@@ -10,27 +12,28 @@ export class APIUtils{
             }
         )
         // Check status code 200
-        expect (loginResponse.ok()).toBeTruthy()
+        expect (await loginResponse.ok()).toBeTruthy()
         const loginResponseJson = await loginResponse.json()
-        token = loginResponseJson.token
+        var token = await loginResponseJson.token
         console.log(token) 
         return token
     }
 
-    async CreateOrder (){
+    async CreateOrder (token){
         //Precondition - create order
-        const orderResponse = await apiConText.post('https://rahulshettyacademy.com/api/ecom/order/create-order',
+
+        const orderResponse = await this.apiConText.post('https://rahulshettyacademy.com/api/ecom/order/create-order',
             {
                 data: {orders:[{country:"Vietnam",productOrderedId:"6581ca399fd99c85e8ee7f45"}]},
                 headers: {
-                    'Authorization': this.token,
+                    'Authorization': token,
                     'Content-Type':'application/json'
                 }
             }
         )
         const orderResponseJson = await orderResponse.json()
         console.log(orderResponseJson)
-        orderId = orderResponseJson.orders[0]
+        var orderId = await orderResponseJson.orders[0]
         return orderId
     }
 }
