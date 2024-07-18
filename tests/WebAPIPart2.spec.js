@@ -4,7 +4,7 @@ import {test, expect , request} from '@playwright/test'
 //Test: Cart, Order, Order detail, Order History
 const email = 'tunglam@gmail.com'
 const password = 'Moihoc!1'
-
+let webContext
 test.beforeAll('API Part 2' ,async ({browser})=>{
     const context = await browser.newContext()
     const page = await context.newPage()
@@ -14,9 +14,15 @@ test.beforeAll('API Part 2' ,async ({browser})=>{
     await page.locator("[value='Login']").click()
     await page.waitForLoadState('networkidle')
     await context.storageState({path: 'state.json'})
+    // Declare token into storageState
+    webContext = await browser.newContext({storageState:'state.json'})
 })
 
-test ('Page Client App Login' , async ({page}) =>{   
+test ('Page Client App Login' , async () =>{   
+
+    const page = await webContext.newPage()    
+    
+    await page.goto("https://rahulshettyacademy.com/client/")
     const products = page.locator('.card-body')
     await page.locator('.card-body').nth(0).waitFor()
     const titles = await products.allTextContents()
@@ -65,3 +71,13 @@ test ('Page Client App Login' , async ({page}) =>{
     //await page.pause()
 
 });
+
+
+test ('Test case Injected StorageState' , async () =>{   
+    const page = await webContext.newPage()    
+    await page.goto("https://rahulshettyacademy.com/client/")
+    const products = page.locator('.card-body')
+    await page.locator('.card-body').nth(0).waitFor()
+    const titles = await products.allTextContents()
+    console.log(titles)
+})
