@@ -18,17 +18,3 @@ test ('Popup Validate', async ({page}) =>{
     const textCheck = await framePage.locator(".text h2").textContent()
     console.log(textCheck.split(" ")[1])
 })
-
-test ('Screenshot', async({page}) => {
-    await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
-    await expect (page.locator('#displayed-text')).toBeVisible()
-    await page.locator('#displayed-text').screenshot({path: 'elementScreenShot.jpg'})
-    await page.locator('#hide-textbox').click()
-    await page.screenshot({path: 'pageScreenShot.jpg'})
-    await expect (page.locator('#displayed-text')).toBeHidden()
-})
-
-test.only ('Visual', async({page})=>{
-    await page.goto('https://www.google.com/')
-    expect(await page.screenshot()).toMatchSnapshot('landing.png')
-})

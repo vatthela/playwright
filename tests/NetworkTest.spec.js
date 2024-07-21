@@ -26,7 +26,7 @@ test ('Place the Order' , async ({page}) =>{
     // await page.locator("#userPassword").fill(password)
     // await page.locator("[value='Login']").click()
     // await page.waitForLoadState('networkidle')
-
+    page.route()
     
     await page.locator('.card-body').nth(0).waitFor()
     const titles = await products.allTextContents()

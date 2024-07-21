@@ -13,6 +13,7 @@ test.beforeAll('API Part 2' ,async ({browser})=>{
     await page.locator("#userPassword").fill(password)
     await page.locator("[value='Login']").click()
     await page.waitForLoadState('networkidle')
+    //Save storageState
     await context.storageState({path: 'state.json'})
     // Declare token into storageState
     webContext = await browser.newContext({storageState:'state.json'})
