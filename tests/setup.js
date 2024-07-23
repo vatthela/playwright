@@ -1,4 +1,4 @@
-const { chromium } = require("playwright");
+import { chromium } from "playwright";
 
 module.exports = async () => {
   global.browser = await chromium.launch({ keepBrowserOpen: true });
