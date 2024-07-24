@@ -1,6 +1,6 @@
 const {test, expect} = require("@playwright/test");
 const { count } = require("console");
-import { LoginPage } from "../pageobjects/LoginPage";
+import { LoginPage } from "../../pageobjects/LoginPage";
 
 
 

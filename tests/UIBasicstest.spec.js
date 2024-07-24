@@ -17,8 +17,6 @@ test ('Browser Context Playwright test' , async ({page, context}) =>
         await expect (page.locator("[style*='block']")).toContainText("Incorrect")
         await username.fill("")
         await username.fill("rahulshettyacademy")
-
-
         await signIn.click()
         
         console.log(await cardTitle.nth(0).textContent())   //Get 1 element, have auto-waiting

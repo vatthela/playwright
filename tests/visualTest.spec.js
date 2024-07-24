@@ -9,7 +9,15 @@ test ('Screenshot', async({page}) => {
     await expect (page.locator('#displayed-text')).toBeHidden()
 })
 
-test.only ('Visual Test', async({page})=>{
+test ('Visual Test', async({page})=>{
     await page.goto('https://www.google.com/')
     expect(await page.screenshot()).toMatchSnapshot('landing.png')
+})
+
+test.only ('test', async ({page}) => {
+    await page.goto('https://rahulshettyacademy.com/upload-download-test/')
+    const textSearch = 'Mango'
+    const textLocation = page.getByText(textSearch)
+    const desiredRow = page.getByRole('row').filter({has: textLocation})
+    console.log(desiredRow)
 })
