@@ -1,6 +1,7 @@
 const {test, expect} = require("@playwright/test");
 const { count } = require("console");
 import { LoginPage } from "../../pageobjects/LoginPage";
+import { DashboardPage } from "../../pageobjects/DashboardPage";
 
 
 
@@ -11,23 +12,28 @@ test ('Page Client App Login' , async ({page}) =>{
     const products = page.locator('.card-body')
     
     const loginPage = new LoginPage(page)
-    loginPage.goto()
-    loginPage.ValidLogin(email,password)
+    await loginPage.goto()
+    await loginPage.ValidLogin(email,password)
 
-    await page.waitForLoadState('networkidle')
-    await page.locator('.card-body').nth(0).waitFor()
-    const titles = await products.allTextContents()
-    console.log(titles)
-
-    //Zara Coat 3
+        //Zara Coat 3
     const productName = 'ZARA COAT 3'
-    for (let i = 0; i < await products.count(); i++) {
-        if (await products.nth(i).locator('b').textContent() == productName) {
-            await products.nth(i).locator('text= Add To Cart').click()
-            break
-        } 
-    }
-    await page.locator('[routerlink*="cart"]').click()
+
+    const dashboardPage = new DashboardPage(page)
+    await dashboardPage.searchProduct(productName)
+    await dashboardPage.navigateTocart()
+    // await page.waitForLoadState('networkidle')
+    // await page.locator('.card-body').nth(0).waitFor()
+    // const titles = await products.allTextContents()
+    // console.log(titles)
+    // for (let i = 0; i < await products.count(); i++) {
+    //     if (await products.nth(i).locator('b').textContent() == productName) {
+    //         await products.nth(i).locator('text= Add To Cart').click()
+    //         break
+    //     } 
+    // }
+
+    // await page.locator('[routerlink*="cart"]').click()
+
     await page.locator("div li").first().waitFor()
     await expect (page.locator(`h3:has-text('${productName}')`)).toBeVisible()
     await page.locator('text=Checkout').click()
