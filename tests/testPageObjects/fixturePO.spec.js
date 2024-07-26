@@ -1,11 +1,10 @@
 const {test, expect} = require("@playwright/test");
 import { BasePage } from "../../pageobjects/BasePage";
+import {customtest} from '../../Utils/test-base'
+//const dataSet = require('../../Utils/placeOderData.json')
 
-const dataSet = require('../../Utils/placeOderData.json')
 
-for (const data of dataSet)
-{
-    test (`Page Client App Login For ${data.productName}` , async ({page}) =>{   
+    customtest ('Page Client App Login For' , async ({page, testDataForOder}) =>{   
 
         const basePage = new BasePage(page)
         // const email = 'tunglam@gmail.com'
@@ -14,14 +13,14 @@ for (const data of dataSet)
 
         const loginPage = basePage.getLoginPage()
         await loginPage.goto()
-        await loginPage.ValidLogin(data.email,data.password)
+        await loginPage.ValidLogin(testDataForOder.email,testDataForOder.password)
 
         const dashboardPage = basePage.getDashboardPage()
-        await dashboardPage.searchProduct(data.productName)
+        await dashboardPage.searchProduct(testDataForOder.productName)
         await dashboardPage.navigateTocart()
 
         const cartPage = basePage.getCartPage()
-        await cartPage.verifyProductIsDisplayed(data.productName)
+        await cartPage.verifyProductIsDisplayed(testDataForOder.productName)
         await cartPage.checkOut()
 
         const ordersReviewPage = basePage.getOrdersReviewPage()
@@ -62,5 +61,3 @@ for (const data of dataSet)
         //await page.pause()
 
     });
-
-}
