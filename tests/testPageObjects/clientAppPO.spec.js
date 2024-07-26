@@ -48,7 +48,7 @@ test ('Page Client App Login' , async ({page}) =>{
     console.log(orderId)
     await dashboardPage.navigateToOrders()
 
-    const ordersHistoryPage =  basePage.getOrdersHistoryPage
+    const ordersHistoryPage = basePage.getOrdersHistoryPage()
     await ordersHistoryPage.searchOrderAndSelect(orderId)
     // await page.locator('tbody').waitFor()
     // const rows = page.locator('tbody tr')

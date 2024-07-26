@@ -4,6 +4,7 @@ class DashboardPage
     {
         this.productsLocation = page.locator('.card-body')
         this.cart = page.locator('[routerlink*="cart"]')
+        this.orders = page.locator('button[routerlink="/dashboard/myorders"]')
     }
 
     async searchProduct(productName){
