@@ -25,32 +25,38 @@ module.exports = defineConfig({
   reporter: 'html',
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
-    browserName: 'chromium',
-    keepBrowserOpen: true,
-    headless: false,
-    screenshot:'on',
-  },
   globalSetup: require.resolve('./tests/setup.js'),
   timeout: 20 * 1000,
   expect: {
     timeout: 5000
   },
 
-  // projects: [
-  //   {
-  //     name: 'chromium',
-  //     use: { 
-  //       browserName: 'chromium',
-  //       keepBrowserOpen: true
-  //     },
-  //   },
-  // ]
+  projects: [
+    {
+      name: 'chrome',
+      use: { 
+        browserName: 'chromium',
+        trace: 'on',
+        headless: false,
+        screenshot:'off',
+        ignoreHTTPSErrors: true,
+        permissions:['geolocation']
+      },
+    },
+    {
+      name: 'safari',
+      use: {
+        trace: 'retain-on-failure',
+        browserName: 'webkit',
+        keepBrowserOpen: true,
+        headless: false,
+        screenshot:'on',
+        ...devices['iPhone 11 Pro Max']
+        //viewport:{width:720, height:720}
+      }
+    }
+  ]
   /* Configure projects for major browsers */
   // projects: [
   //   {
