@@ -20,10 +20,9 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   globalSetup: require.resolve('./tests/setup.js'),
@@ -43,18 +42,6 @@ module.exports = defineConfig({
         ignoreHTTPSErrors: true,
         permissions:['geolocation']
       },
-    },
-    {
-      name: 'safari',
-      use: {
-        trace: 'retain-on-failure',
-        browserName: 'webkit',
-        keepBrowserOpen: true,
-        headless: false,
-        screenshot:'on',
-        ...devices['iPhone 11 Pro Max']
-        //viewport:{width:720, height:720}
-      }
     }
   ]
   /* Configure projects for major browsers */

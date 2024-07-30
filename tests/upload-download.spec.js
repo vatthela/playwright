@@ -28,7 +28,7 @@ async function readExcel(workSheet, searchText){
 
 //writeExcel('Apple',500,{rowChange: 0,colChange: 2 },'/Auto/Playwright/data/test1.xlsx')
 
-test.only ('Download And Upload Validation', async ({page}) => {
+test ('Download And Upload Validation', async ({page}) => {
     const textSearch = 'Mango'
     const validateValue = '150'
     await writeExcel(textSearch,validateValue,{rowChange: 0,colChange: 2 },'/Auto/Playwright/data/download.xlsx')
