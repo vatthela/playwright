@@ -2,7 +2,7 @@ const {test, expect} = require("@playwright/test");
 import { BasePage } from "../../pageobjects/BasePage";
 
 
-test ('Page Client App Login For' , async ({page}) =>{   
+test ('@smoke Page Client App Login For' , async ({page}) =>{   
     const basePage = new BasePage(page)
     const email = 'tunglam@gmail.com'
     const password = 'Moihoc!1'

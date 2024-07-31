@@ -5,7 +5,7 @@ const dataSet = require('../../Utils/placeOderData.json')
 
 for (const data of dataSet)
 {
-    test (`Page Client App Login For ${data.productName}` , async ({page}) =>{   
+    test (`@smoke Page Client App Login For ${data.productName}` , async ({page}) =>{   
 
         const basePage = new BasePage(page)
         // const email = 'tunglam@gmail.com'

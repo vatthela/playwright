@@ -13,7 +13,7 @@ test.beforeAll('Login', async ({}) => {
 })
 
 //Verify order created is showing in history order
-test ('Place the Order' , async ({page}) =>{
+test ('@smoke Place the Order' , async ({page}) =>{
     page.addInitScript(value => {
         window.localStorage.setItem('token',value)
     }, token )
