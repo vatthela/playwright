@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/WebAPIPart2.spec.js"
+    "regresstion": "npx playwright test",
+    "smokeTest": "npx playwright test --grep smoke",
+    "APITest": "npx playwright test --grep API"
   },
   "keywords": [],
   "author": "",
