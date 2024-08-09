@@ -1,4 +1,3 @@
-import {test, expect} from '@playwright/test'
 class CartPage
 {
 constructor(page)

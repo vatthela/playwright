@@ -1,6 +1,6 @@
 import{ expect } from '@playwright/test'
 
-class OrdersReviewPage
+export class OrdersReviewPage
 {
 constructor(page)
 {
