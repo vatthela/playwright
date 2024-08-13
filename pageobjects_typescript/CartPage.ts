@@ -1,7 +1,5 @@
 import { expect, type Locator, type Page } from "@playwright/test";
-
-
-class CartPage
+export class CartPage
 {
     page: Page;
     cartProducts: Locator

@@ -1,13 +1,17 @@
-class DashboardPage
+import { expect, type Locator, type Page } from "@playwright/test";
+export class DashboardPage
 {
-    constructor(page)
+    productsLocation: Locator
+    cart: Locator;
+    orders: Locator;
+    constructor(page:Page)
     {
         this.productsLocation = page.locator('.card-body')
         this.cart = page.locator('[routerlink*="cart"]')
         this.orders = page.locator('button[routerlink="/dashboard/myorders"]')
     }
 
-    async searchProduct(productName){
+    async searchProduct(productName:String){
 
         await this.productsLocation.nth(0).waitFor()
         const titles = await this.productsLocation.allTextContents()
