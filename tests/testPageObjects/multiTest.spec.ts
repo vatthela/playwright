@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { BasePage } from "../../pageobjects_ts/BasePage";
 import {customTest} from '../../Utils_ts/test-base'
+
 import dataSet from '../../Utils/placeOderData.json';
 
 for (const data of dataSet)
@@ -42,7 +43,9 @@ for (const data of dataSet)
         //await expect(page.locator('.user__name [type="text"]').first()).toContainText("tunglam")
         // await page.locator('.action__submit').click()
         // await expect (page.locator('.hero-primary')).toContainText("Thankyou for the order")
-        const orderId: any = await ordersReviewPage.submitAndGetOrderId()
+
+        let orderId: any
+        orderId = await ordersReviewPage.submitAndGetOrderId()
         console.log(orderId)
         await dashboardPage.navigateToOrders()
 
@@ -56,8 +59,8 @@ for (const data of dataSet)
         //         await rows.nth(i).locator('.btn-primary').first().click()
         //     }
         // } 
-        
-        const orderIdDetails:any = await ordersHistoryPage.getOrderId()
+        let orderIdDetails: any
+         orderIdDetails = await ordersHistoryPage.getOrderId()
         expect (orderId.includes(orderIdDetails)).toBeTruthy()
         //await page.pause()
 
@@ -65,7 +68,7 @@ for (const data of dataSet)
 
 }
 
-customTest ('Page Client App Login For' , async ({page, testDataForOder}) =>{   
+customTest ('Page Client App Login For' , async ({page, testDataForOrder}) =>{   
 
     const basePage = new BasePage(page)
     // const email = 'tunglam@gmail.com'
@@ -74,14 +77,14 @@ customTest ('Page Client App Login For' , async ({page, testDataForOder}) =>{
 
     const loginPage = basePage.getLoginPage()
     await loginPage.goto()
-    await loginPage.ValidLogin(testDataForOder.email,testDataForOder.password)
+    await loginPage.ValidLogin(testDataForOrder.email,testDataForOrder.password)
 
     const dashboardPage = basePage.getDashboardPage()
-    await dashboardPage.searchProduct(testDataForOder.productName)
+    await dashboardPage.searchProduct(testDataForOrder.productName)
     await dashboardPage.navigateTocart()
 
     const cartPage = basePage.getCartPage()
-    await cartPage.verifyProductIsDisplayed(testDataForOder.productName)
+    await cartPage.verifyProductIsDisplayed(testDataForOrder.productName)
     await cartPage.checkOut()
 
     const ordersReviewPage = basePage.getOrdersReviewPage()
