@@ -19,7 +19,7 @@ constructor(page: Page)
 
 }
 
-async verifyProductIsDisplayed(productName: Page)
+async verifyProductIsDisplayed(productName: string)
 {
    
     await this.cartProducts.waitFor();
@@ -33,7 +33,7 @@ async checkOut()
     await this.checkout.click();
 }
 
- getProductLocator(productName: Page)
+ getProductLocator(productName:string)
 {
     return  this.page.locator("h3:has-text('"+productName+"')");
 }

@@ -4,7 +4,7 @@ import { CartPage } from "./CartPage";
 import { OrdersHistoryPage } from "./OrdersHistoryPage";
 import { OrdersReviewPage } from "./OrdersReviewPage";
 
-class BasePage {
+export class BasePage {
     private loginPage: LoginPage;
     private dashboardPage: DashboardPage;
     private cartPage: CartPage;
@@ -40,4 +40,4 @@ class BasePage {
     }
 }
 
-export { BasePage };
+module.exports = { BasePage };
