@@ -42,7 +42,8 @@ for (const data of dataSet)
         //await expect(page.locator('.user__name [type="text"]').first()).toContainText("tunglam")
         // await page.locator('.action__submit').click()
         // await expect (page.locator('.hero-primary')).toContainText("Thankyou for the order")
-        const orderId = await ordersReviewPage.submitAndGetOrderId()
+        let orderId: any
+        orderId = await ordersReviewPage.submitAndGetOrderId()
         console.log(orderId)
         await dashboardPage.navigateToOrders()
 
