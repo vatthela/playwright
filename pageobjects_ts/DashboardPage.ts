@@ -11,7 +11,7 @@ export class DashboardPage
         this.orders = page.locator('button[routerlink="/dashboard/myorders"]')
     }
 
-    async searchProduct(productName:String){
+    async searchProductAndAddToCart(productName:String){
 
         await this.productsLocation.nth(0).waitFor()
         const titles = await this.productsLocation.allTextContents()

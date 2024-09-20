@@ -1,9 +1,14 @@
+// import { DashboardPage } from "./DashboardPage"
+// import { LoginPage } from "./LoginPage"
+// import { CartPage } from "./CartPage"
+// import { OrdersHistoryPage } from "./OrdersHistoryPage"
+// import { OrdersReviewPage } from "./OrdersReviewPage"
+
 import { DashboardPage } from "./DashboardPage"
 import { LoginPage } from "./LoginPage"
 import { CartPage } from "./CartPage"
 import { OrdersHistoryPage } from "./OrdersHistoryPage"
 import { OrdersReviewPage } from "./OrdersReviewPage"
-
 
 
 class BasePage{
