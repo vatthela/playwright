@@ -18,7 +18,7 @@ for (const data of dataSet)
         await loginPage.ValidLogin(data.email,data.password)
 
         const dashboardPage = basePage.getDashboardPage()
-        await dashboardPage.searchProduct(data.productName)
+        await dashboardPage.searchProductAndAddToCart(data.productName)
         await dashboardPage.navigateTocart()
 
         const cartPage = basePage.getCartPage()
