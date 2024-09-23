@@ -80,7 +80,7 @@ customTest ('Page Client App Login For' , async ({page, testDataForOrder}) =>{
     await loginPage.ValidLogin(testDataForOrder.email,testDataForOrder.password)
 
     const dashboardPage = basePage.getDashboardPage()
-    await dashboardPage.searchProduct(testDataForOrder.productName)
+    await dashboardPage.searchProductAndAddToCart(testDataForOrder.productName)
     await dashboardPage.navigateTocart()
 
     const cartPage = basePage.getCartPage()
