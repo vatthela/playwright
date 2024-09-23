@@ -5,3 +5,6 @@ Feature: Ecommmerce
         Then Verify "product" is displayed in the Cart
         When Enter valid details and place the Order
         Then Verify order in ther OrderHistory
+        Examples:
+            | username | password | product |
+            | tunglam@gmail.com  | Moihoc!1  | ZARA COAT 3  |
