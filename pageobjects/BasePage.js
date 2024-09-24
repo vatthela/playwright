@@ -1,15 +1,14 @@
+const {LoginPage} = require('./LoginPage');
+const {DashboardPage} = require('./DashboardPage');
+const {OrdersHistoryPage} = require('./OrdersHistoryPage');
+const {OrdersReviewPage} = require('./OrdersReviewPage');
+const {CartPage} = require('./CartPage');
+
 // import { DashboardPage } from "./DashboardPage"
 // import { LoginPage } from "./LoginPage"
 // import { CartPage } from "./CartPage"
 // import { OrdersHistoryPage } from "./OrdersHistoryPage"
 // import { OrdersReviewPage } from "./OrdersReviewPage"
-
-import { DashboardPage } from "./DashboardPage"
-import { LoginPage } from "./LoginPage"
-import { CartPage } from "./CartPage"
-import { OrdersHistoryPage } from "./OrdersHistoryPage"
-import { OrdersReviewPage } from "./OrdersReviewPage"
-
 
 class BasePage{
 
