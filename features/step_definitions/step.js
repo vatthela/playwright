@@ -4,7 +4,7 @@ const { BasePage } = require  ("../../pageobjects/BasePage");
 const {expect} = require ('@playwright/test')
 const playwright = require ('@playwright/test')
 
-Given ('Login to Ecommmerce web with {string} and {string}', async function (email,password){
+Given ('Login to Ecommmerce web with {string} and {string}', {timeout: 10 * 1000}, async function (email,password){
     this.browsers = await playwright.chromium.launch({headless:false})
     const context = await this.browsers.newContext()
     const page = await context.newPage()

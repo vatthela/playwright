@@ -5,7 +5,8 @@
   "scripts": {
     "regresstion": "npx playwright test",
     "smokeTest": "npx playwright test --grep smoke",
-    "APITest": "npx playwright test --grep API"
+    "APITest": "npx playwright test --grep API",
+    "test": "cucumber-js"
   },
   "keywords": [],
   "author": "",

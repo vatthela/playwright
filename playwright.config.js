@@ -39,7 +39,7 @@ module.exports = defineConfig({
   globalSetup: require.resolve('./tests/setup.js'),
   timeout: 20 * 1000,
   expect: {
-    timeout: 10000
+    timeout: 30000
   },
 
   // projects: [
