@@ -37,3 +37,20 @@ Then ('Verify order in ther OrderHistory', async function() {
     expect (this.orderId.includes(orderIdDetails)).toBeTruthy()
 
 })
+
+
+
+Given ('Login to Ecommmerce2 web with {string} and {string}', {timeout: 10 * 1000}, async function (email,password){
+    const userName = this.page.locator("//input[@id='username']")
+    const signIn = this.page.locator('#signInBtn')
+    await this.page.goto("https://rahulshettyacademy.com/loginpagePractise/"); // Thao tác trên page
+    await userName.fill(email, { timeout: 1000})
+    await this.page.locator("#password").fill(password, { timeout: 1000})
+    await signIn.click()
+
+})
+
+Then('Verify Error message is displayed in the Cart', async function () {
+    console.log(await this.page.locator("[style*='block']").textContent())
+    await expect (this.page.locator("[style*='block']")).toContainText("Incorrect")
+  })
