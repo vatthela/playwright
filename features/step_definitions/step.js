@@ -1,14 +1,9 @@
 //import { When, Then, Given  } from "@cucumber/cucumber";
 const { When, Then, Given} = require ('@cucumber/cucumber')
-const { BasePage } = require  ("../../pageobjects/BasePage");
 const {expect} = require ('@playwright/test')
 const playwright = require ('@playwright/test')
 
 Given ('Login to Ecommmerce web with {string} and {string}', {timeout: 10 * 1000}, async function (email,password){
-    this.browsers = await playwright.chromium.launch({headless:false})
-    const context = await this.browsers.newContext()
-    const page = await context.newPage()
-    this.basePage = new BasePage(page)
     const loginPage = this.basePage.getLoginPage()
     await loginPage.goto()
     await loginPage.ValidLogin(email,password)
@@ -40,5 +35,5 @@ Then ('Verify order in ther OrderHistory', async function() {
     await ordersHistoryPage.searchOrderAndSelect(this.orderId)
     const orderIdDetails = await ordersHistoryPage.getOrderId()
     expect (this.orderId.includes(orderIdDetails)).toBeTruthy()
-    this.browsers.close()
+
 })
