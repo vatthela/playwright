@@ -52,3 +52,8 @@ Thông tin ban đầu: the country email, the product name, everything is same a
 PS C:\Auto\Playwright> npx playwright test clientAppPO.spec.js --config playwright.config1.js --project=safari 
 
 npm i -D allure-playwright
+
+
+npx cucumber-js --parallel 10 --format html:reports/cucumber-report.html
+
+npx cucumber-js --tags "@Regresstion" --retry 1 --format html:reports/cucumber-report.html
