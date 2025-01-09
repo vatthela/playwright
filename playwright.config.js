@@ -18,7 +18,7 @@ module.exports = defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 2,
+  retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -37,7 +37,7 @@ module.exports = defineConfig({
     screenshot:'on',
   },
   globalSetup: require.resolve('./tests/setup.js'),
-  timeout: 20 * 1000,
+  timeout: 10 * 1000,
   expect: {
     timeout: 30000
   },
