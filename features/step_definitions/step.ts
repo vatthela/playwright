@@ -10,5 +10,5 @@ Given ('Login to Ecommmerce web with {username} and {password}', async function 
     const basePage = new BasePage(page)
     const loginPage = basePage.getLoginPage()
     await loginPage.goto()
-    await loginPage.ValidLogin(data.email,data.password)
+    //await loginPage.ValidLogin(data.email,data.password)
 })

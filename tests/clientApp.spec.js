@@ -2,7 +2,7 @@ const {test, expect} = require("@playwright/test");
 const { count } = require("console");
 
 
-test.skip ('Page Client App Login' , async ({page}) =>{   
+test ('Page Client App Login' , async ({page}) =>{   
     const email = 'tunglam@gmail.com'
     const password = 'Moihoc!1'
     const products = page.locator('.card-body')
@@ -15,8 +15,8 @@ test.skip ('Page Client App Login' , async ({page}) =>{
     const titles = await products.allTextContents()
     console.log(titles)
 
-    //Zara Coat 3
-    const productName = 'ZARA COAT 3'
+    //IPHONE 13 PRO
+    const productName = 'IPHONE 13 PRO'
     for (let i = 0; i < await products.count(); i++) {
         if (await products.nth(i).locator('b').textContent() == productName) {
             await products.nth(i).locator('text= Add To Cart').click()
@@ -30,6 +30,7 @@ test.skip ('Page Client App Login' , async ({page}) =>{
     await page.locator('[placeholder="Select Country"]').pressSequentially('vi')   
     const dropdown = page.locator('.ta-results')
     await dropdown.waitFor()
+    await expect(dropdown).toBeVisible();
     const countDropdown = dropdown.locator('button')
     for (let i = 0; i < await countDropdown.count(); i++) {
         const text = await countDropdown.nth(i).textContent()

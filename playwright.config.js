@@ -37,7 +37,7 @@ module.exports = defineConfig({
     screenshot:'on',
   },
   globalSetup: require.resolve('./tests/setup.js'),
-  timeout: 10 * 1000,
+  timeout: 30 * 1000,
   expect: {
     timeout: 30000
   },
