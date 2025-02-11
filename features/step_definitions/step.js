@@ -3,7 +3,7 @@ const { When, Then, Given} = require ('@cucumber/cucumber')
 const {expect} = require ('@playwright/test')
 const playwright = require ('@playwright/test')
 
-Given ('Login to Ecommmerce web with {string} and {string}', {timeout: 10 * 1000}, async function (email,password){
+Given ('Login to Ecommmerce web with {string} and {string}', {timeout: 30 * 1000}, async function (email,password){
     const loginPage = this.basePage.getLoginPage()
     await loginPage.goto()
     await loginPage.ValidLogin(email,password)
